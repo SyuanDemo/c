@@ -1,0 +1,943 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.loading .loading-logo, section .wrap .game .room .room-bg .answer .answer-area, section .wrap .game .room .room-bg .answer .wrong, section .wrap .game .msg, section .wrap .game .msg div p, section .wrap .game .info, section .wrap .game .info div p, .popup .outer {
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.disappear-bg {
+  -webkit-animation: disappear 1.5s ease-in-out forwards;
+  animation: disappear 1.5s ease-in-out forwards; }
+
+.disappear-logo {
+  -webkit-animation: disappear .8s ease-in-out forwards;
+  animation: disappear .8s ease-in-out forwards; }
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes disappear {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes loadingOl {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  0% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes loadingOl {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  0% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes loadingOr {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  0% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg); } }
+
+@keyframes loadingOr {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  0% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg); } }
+
+.loading .loading-bg {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100000; }
+
+.loading .loading-logo {
+  width: 230px;
+  position: fixed;
+  top: 42%;
+  left: 50%;
+  z-index: 100001; }
+  .loading .loading-logo #loading-lookin {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: appear 2.5s 1;
+    animation: appear 2.5s 1; }
+  .loading .loading-logo #loading-ol {
+    width: 50px;
+    position: absolute;
+    top: 17px;
+    left: 36px;
+    -webkit-animation: appear 2.5s 1,loadingOl 1s infinite;
+    animation: appear 2.5s 1,loadingOl 1s infinite; }
+  .loading .loading-logo #loading-or {
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 84px;
+    -webkit-animation: appear 2.5s 1,loadingOr 1s infinite;
+    animation: appear 2.5s 1,loadingOr 1s infinite; }
+
+* {
+  text-decoration: none;
+  outline: none;
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  overflow-x: hidden;
+  background-color: #f9d8d4;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+  font-family: "Arial", "sans-serif", "LIHEI PRO", "微軟正黑體", "Microsoft JhengHei"; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    background-color: transparent;
+    cursor: pointer;
+    width: 8px; }
+  html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background-color: #231f2048;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 5px; }
+
+button, select, input, textarea {
+  font-family: "Arial", "sans-serif", "LIHEI PRO", "微軟正黑體", "Microsoft JhengHei";
+  outline: none; }
+
+.display {
+  display: none; }
+
+.open {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; }
+  .open .open-door {
+    height: 100%; }
+    .open .open-door div {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 57%;
+      position: absolute; }
+    .open .open-door .open-1 {
+      background-color: rgba(255, 255, 255, 0.35);
+      z-index: 1001; }
+    .open .open-door .open-2 {
+      background-image: url(../img/open-1.jpg);
+      background-color: white;
+      z-index: 1000; }
+    .open .open-door .open-3 {
+      background-image: url(../img/open-2.jpg);
+      background-color: white;
+      z-index: 999; }
+    .open .open-door .open-4 {
+      background-image: url(../img/open-3.jpg);
+      background-color: white;
+      z-index: 998; }
+    .open .open-door .open-5 {
+      background-color: white;
+      z-index: 997; }
+
+section {
+  cursor: url("https://event.look-in.com.tw/2020/lookinbeautyaward/check/img/cursor.png"), auto; }
+  section .wrap {
+    position: relative;
+    cursor: url("https://event.look-in.com.tw/2020/lookinbeautyaward/check/img/cursor.png"), auto; }
+    section .wrap .game {
+      z-index: 800;
+      position: relative; }
+      section .wrap .game .logo {
+        width: 255px;
+        position: fixed;
+        top: -6px;
+        left: calc(50% - 127.5px);
+        z-index: 100; }
+        @media screen and (min-width: 768px) {
+          section .wrap .game .logo {
+            top: -5px;
+            left: 20px; } }
+        @media screen and (min-width: 1367px) {
+          section .wrap .game .logo {
+            width: 290px; } }
+        section .wrap .game .logo img {
+          width: 100%; }
+      section .wrap .game .room .room-bg {
+        position: relative;
+        overflow-x: auto;
+        overflow-y: hidden;
+        cursor: url("https://event.look-in.com.tw/2020/lookinbeautyaward/check/img/cursor.png"), auto; }
+        section .wrap .game .room .room-bg::-webkit-scrollbar {
+          background-color: transparent;
+          cursor: pointer;
+          height: 12px; }
+        section .wrap .game .room .room-bg::-webkit-scrollbar-thumb {
+          background-color: #231f2048;
+          border-radius: 50px;
+          cursor: pointer; }
+        section .wrap .game .room .room-bg img {
+          width: 1200px;
+          pointer-events: none; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg img {
+              width: 1366px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg img {
+              width: 1920px; } }
+        section .wrap .game .room .room-bg .answer .answer-area {
+          width: 42px;
+          height: 42px;
+          position: absolute; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-area {
+              width: 55px;
+              height: 55px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-area {
+              width: 70px;
+              height: 70px; } }
+        section .wrap .game .room .room-bg .answer .wrong {
+          width: 42px;
+          height: 42px;
+          background-image: url(../img/wrong.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .wrong {
+              width: 55px;
+              height: 55px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .wrong {
+              width: 70px;
+              height: 70px; } }
+        section .wrap .game .room .room-bg .answer .correct {
+          width: 42px;
+          height: 42px;
+          background-image: url(../img/correct.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .correct {
+              width: 55px;
+              height: 55px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .correct {
+              width: 70px;
+              height: 70px; } }
+        section .wrap .game .room .room-bg .answer .answer-1 {
+          top: 129px;
+          left: 227px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-1 {
+              top: 146px;
+              left: 259px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-1 {
+              top: 209px;
+              left: 363px; } }
+        section .wrap .game .room .room-bg .answer .answer-2 {
+          top: 211px;
+          left: 218px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-2 {
+              top: 238px;
+              left: 248px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-2 {
+              top: 338px;
+              left: 347px; } }
+        section .wrap .game .room .room-bg .answer .answer-3 {
+          top: 213px;
+          left: 132px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-3 {
+              top: 242px;
+              left: 151px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-3 {
+              top: 342px;
+              left: 212px; } }
+        section .wrap .game .room .room-bg .answer .answer-4 {
+          top: 223px;
+          left: 517px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-4 {
+              top: 254px;
+              left: 589px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-4 {
+              top: 358px;
+              left: 826px; } }
+        section .wrap .game .room .room-bg .answer .answer-5 {
+          top: 432px;
+          left: 762px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-5 {
+              top: 489px;
+              left: 867px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-5 {
+              top: 687px;
+              left: 1220px; } }
+        section .wrap .game .room .room-bg .answer .answer-6 {
+          top: 417px;
+          left: 974px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-6 {
+              top: 477px;
+              left: 1108px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-6 {
+              top: 668px;
+              left: 1558px; } }
+        section .wrap .game .room .room-bg .answer .answer-7 {
+          top: 216px;
+          left: 984px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-7 {
+              top: 247px;
+              left: 1120px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-7 {
+              top: 346px;
+              left: 1575px; } }
+        section .wrap .game .room .room-bg .answer .answer-8 {
+          top: 202px;
+          left: 1080px; }
+          @media screen and (min-width: 768px) {
+            section .wrap .game .room .room-bg .answer .answer-8 {
+              top: 233px;
+              left: 1229px; } }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .room .room-bg .answer .answer-8 {
+              top: 324px;
+              left: 1729px; } }
+      section .wrap .game .show {
+        -webkit-animation: show 2s ease-in;
+        animation: show 2s ease-in; }
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
+@keyframes show {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+      section .wrap .game .msg {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        position: absolute;
+        top: 465px;
+        left: 50%;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+        transition: all .5s;
+        opacity: 0; }
+        @media screen and (min-width: 768px) {
+          section .wrap .game .msg {
+            top: 545px; } }
+        @media screen and (min-width: 1366px) {
+          section .wrap .game .msg {
+            top: 600px; } }
+        @media screen and (min-width: 1367px) {
+          section .wrap .game .msg {
+            top: 845px; } }
+        section .wrap .game .msg div {
+          display: block;
+          width: 300px;
+          position: relative;
+          margin: 0 auto;
+          text-align: center; }
+          @media screen and (min-width: 1367px) {
+            section .wrap .game .msg div {
+              width: 400px; } }
+          section .wrap .game .msg div img {
+            width: 100%; }
+          section .wrap .game .msg div p {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            position: absolute;
+            top: 46%;
+            left: 50%;
+            font-size: 1.05rem;
+            font-weight: bold;
+            letter-spacing: 1px; }
+            @media screen and (min-width: 1367px) {
+              section .wrap .game .msg div p {
+                top: 45%;
+                font-size: 1.3rem;
+                letter-spacing: 1.5px; } }
+      section .wrap .game .info {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        position: absolute;
+        top: 517px;
+        left: 50%; }
+        @media screen and (min-width: 768px) {
+          section .wrap .game .info {
+            top: 600px; } }
+        @media screen and (min-width: 1366px) {
+          section .wrap .game .info {
+            position: fixed;
+            top: 80px;
+            left: calc(99% - 150px);
+            transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%); } }
+        section .wrap .game .info div {
+          width: 140px;
+          display: inline-block;
+          position: relative;
+          margin: 0px 8px;
+          text-align: center; }
+          @media screen and (min-width: 1366px) {
+            section .wrap .game .info div {
+              width: 155px;
+              display: block;
+              margin: 0; } }
+          section .wrap .game .info div img {
+            width: 100%; }
+          section .wrap .game .info div p {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 61.5%;
+            font-size: 1.05rem;
+            font-weight: bolder;
+            letter-spacing: 1.5px; }
+            @media screen and (min-width: 1366px) {
+              section .wrap .game .info div p {
+                font-size: 1.1rem; } }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001; }
+  .popup .outer {
+    width: 86%;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%; }
+    .popup .outer .inner {
+      width: 100%;
+      background-color: #faf3ed;
+      border: 3px solid #252122;
+      -webkit-box-shadow: 5px 5px 0 #252122;
+      box-shadow: 5px 5px 0 #252122;
+      border-radius: 24px;
+      margin: 0 auto;
+      text-align: center; }
+      .popup .outer .inner .logo {
+        width: 260px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        top: -40px; }
+        @media screen and (min-width: 400px) {
+          .popup .outer .inner .logo {
+            width: 280px;
+            top: -50px; } }
+        @media screen and (min-width: 600px) {
+          .popup .outer .inner .logo {
+            width: 330px;
+            top: -60px; } }
+        .popup .outer .inner .logo img {
+          width: 100%; }
+      .popup .outer .inner .content {
+        width: 90%;
+        margin: -30px auto 0;
+        text-align: justify; }
+        @media screen and (min-width: 400px) {
+          .popup .outer .inner .content {
+            margin: -40px auto 0; } }
+        @media screen and (min-width: 600px) {
+          .popup .outer .inner .content {
+            width: 85%; } }
+        .popup .outer .inner .content p {
+          color: #231f20;
+          font-size: 17px;
+          font-weight: bold;
+          line-height: 1.6rem; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .content p {
+              font-size: 20px;
+              line-height: 2rem;
+              letter-spacing: .5px; } }
+        .popup .outer .inner .content span {
+          display: block;
+          color: #3f5da4;
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 1.3rem;
+          margin: 10px 0 0; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .content span {
+              font-size: 18px;
+              line-height: 1.6rem;
+              margin: 15px 0 0; } }
+        .popup .outer .inner .content .form {
+          max-width: 260px;
+          margin: 0 auto;
+          text-align: center; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .content .form {
+              max-width: 400px;
+              margin: 10px auto; } }
+          .popup .outer .inner .content .form span {
+            width: 80px;
+            display: inline-block;
+            text-align: left; }
+            @media screen and (min-width: 600px) {
+              .popup .outer .inner .content .form span {
+                width: 120px;
+                padding: 4px 0;
+                font-size: 19px;
+                letter-spacing: 1px; } }
+          .popup .outer .inner .content .form input {
+            width: 140px;
+            display: inline-block;
+            border: none;
+            padding: 3px 5px;
+            background-color: #e9dad0;
+            font-size: 15px;
+            color: #231f20; }
+            @media screen and (min-width: 600px) {
+              .popup .outer .inner .content .form input {
+                width: 220px;
+                font-size: 16px;
+                padding: 5px 8px; } }
+        .popup .outer .inner .content .rule div {
+          text-align: center;
+          color: #b96321;
+          font-size: 34px;
+          letter-spacing: 2px;
+          margin-bottom: 12px;
+          font-family: 'Noto Sans TC', sans-serif; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .content .rule div {
+              font-size: 36px; } }
+        .popup .outer .inner .content .rule p {
+          color: #231f20;
+          font-size: 17px;
+          font-weight: bold;
+          line-height: 1.65rem;
+          text-align: center; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .content .rule p {
+              font-size: 20px;
+              line-height: 2rem; } }
+          .popup .outer .inner .content .rule p span {
+            display: inline-block;
+            color: #3f5da4;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.65rem;
+            text-align: center;
+            margin: 0 auto; }
+            @media screen and (min-width: 600px) {
+              .popup .outer .inner .content .rule p span {
+                font-size: 20px;
+                line-height: 2rem; } }
+      .popup .outer .inner .btn {
+        margin: .8rem 3px 1rem;
+        text-align: center;
+        display: inline-block;
+        background-color: #ef756c;
+        border: 3px solid #252122;
+        -webkit-box-shadow: 0 3px 0 #252122;
+        box-shadow: 0 3px 0 #252122;
+        border-radius: 50px;
+        padding: 5px;
+        cursor: pointer;
+        -webkit-transition: top .5s;
+        -o-transition: top .5s;
+        transition: top .5s; }
+        @media screen and (min-width: 600px) {
+          .popup .outer .inner .btn {
+            border: 4px solid #252122;
+            padding: 6px;
+            margin: 1.2rem 15px 1.3rem; } }
+        @media screen and (min-width: 1366px) {
+          .popup .outer .inner .btn:hover {
+            position: relative;
+            top: 2px;
+            -webkit-box-shadow: 0 1px 0 #252122;
+            box-shadow: 0 1px 0 #252122;
+            -webkit-transition: top .5s;
+            -o-transition: top .5s;
+            transition: top .5s; }
+          .popup .outer .inner .btn:hover > p {
+            background-color: #fffa9d;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s; } }
+        .popup .outer .inner .btn p {
+          margin: 0 auto;
+          display: inline-block;
+          background-color: #fefbc7;
+          border: 3px solid #252122;
+          border-radius: 50px;
+          padding: 6px 14px;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          letter-spacing: .5px;
+          color: #231f20; }
+          @media screen and (min-width: 600px) {
+            .popup .outer .inner .btn p {
+              padding: 9px 20px;
+              font-size: 20px;
+              border: 4px solid #252122; } }
+
+.result-popup {
+  background-color: rgba(255, 255, 255, 0.5); }
+  .result-popup .outer {
+    height: 400px; }
+    @media screen and (min-width: 375px) {
+      .result-popup .outer {
+        height: 450px; } }
+    @media screen and (min-width: 400px) {
+      .result-popup .outer {
+        height: 550px; } }
+    @media screen and (min-width: 768px) {
+      .result-popup .outer {
+        max-width: 700px;
+        height: auto; } }
+    @media screen and (min-width: 1200px) {
+      .result-popup .outer {
+        max-width: 760px; } }
+    .result-popup .outer .inner {
+      height: 400px; }
+      @media screen and (min-width: 375px) {
+        .result-popup .outer .inner {
+          height: 450px; } }
+      @media screen and (min-width: 400px) {
+        .result-popup .outer .inner {
+          height: 550px; } }
+      @media screen and (min-width: 768px) {
+        .result-popup .outer .inner {
+          height: auto; } }
+      .result-popup .outer .inner .logo {
+        width: 180px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        top: -35px; }
+        @media screen and (min-width: 375px) {
+          .result-popup .outer .inner .logo {
+            width: 230px;
+            top: -40px; } }
+        @media screen and (min-width: 400px) {
+          .result-popup .outer .inner .logo {
+            width: 240px; } }
+        @media screen and (min-width: 768px) {
+          .result-popup .outer .inner .logo {
+            width: 280px;
+            top: -45px; } }
+        @media screen and (min-width: 1200px) {
+          .result-popup .outer .inner .logo {
+            width: 330px;
+            top: -55px; } }
+        .result-popup .outer .inner .logo img {
+          width: 100%; }
+      .result-popup .outer .inner .scroll {
+        height: 335px;
+        overflow-y: scroll;
+        position: relative;
+        top: -32px;
+        padding: 10px 0; }
+        .result-popup .outer .inner .scroll::-webkit-scrollbar {
+          background-color: transparent;
+          cursor: pointer;
+          width: 6px; }
+        .result-popup .outer .inner .scroll::-webkit-scrollbar-thumb {
+          background-color: #231f2048;
+          border-radius: 50px;
+          cursor: pointer; }
+        @media screen and (min-width: 375px) {
+          .result-popup .outer .inner .scroll {
+            height: 370px;
+            top: -36px; } }
+        @media screen and (min-width: 400px) {
+          .result-popup .outer .inner .scroll {
+            height: 460px;
+            padding: 15px 0; } }
+        @media screen and (min-width: 768px) {
+          .result-popup .outer .inner .scroll {
+            height: auto;
+            overflow-y: auto;
+            padding: 15px 0 4px;
+            margin: 0 0 -18px 0; } }
+        @media screen and (min-width: 1200px) {
+          .result-popup .outer .inner .scroll {
+            top: -40px; } }
+        @media screen and (min-width: 768px) {
+          .result-popup .outer .inner .scroll .content {
+            width: 90%; } }
+        @media screen and (min-width: 1200px) {
+          .result-popup .outer .inner .scroll .content {
+            width: 92%; } }
+        .result-popup .outer .inner .scroll .content .intro {
+          text-align: center; }
+          .result-popup .outer .inner .scroll .content .intro p {
+            font-size: 16px;
+            line-height: 1.5rem; }
+            @media screen and (min-width: 768px) {
+              .result-popup .outer .inner .scroll .content .intro p {
+                font-size: 18px;
+                line-height: 1.7rem;
+                letter-spacing: 1.5px; } }
+            .result-popup .outer .inner .scroll .content .intro p span {
+              display: inline-block;
+              padding: 0 6px;
+              font-size: 18px;
+              line-height: .2rem;
+              color: #f28475; }
+              @media screen and (min-width: 768px) {
+                .result-popup .outer .inner .scroll .content .intro p span {
+                  font-size: 24px;
+                  line-height: 0rem;
+                  padding: 0 8px; } }
+          .result-popup .outer .inner .scroll .content .intro span {
+            font-size: 15px;
+            line-height: 1.3rem;
+            margin: 8px 0 0; }
+            @media screen and (min-width: 768px) {
+              .result-popup .outer .inner .scroll .content .intro span {
+                font-size: 17px;
+                line-height: 1.3rem;
+                letter-spacing: 2px; } }
+        .result-popup .outer .inner .scroll .content .slider {
+          margin: 10px 0 4px; }
+          @media screen and (min-width: 768px) {
+            .result-popup .outer .inner .scroll .content .slider {
+              margin: 15px 0 0px; } }
+          @media screen and (min-width: 1200px) {
+            .result-popup .outer .inner .scroll .content .slider {
+              margin: 15px 0; } }
+          .result-popup .outer .inner .scroll .content .slider .item {
+            width: 120px;
+            text-align: center;
+            font-size: 0;
+            display: inline-block;
+            margin: 0 5px;
+            background-color: #ffffff; }
+            @media screen and (min-width: 375px) {
+              .result-popup .outer .inner .scroll .content .slider .item {
+                width: 140px; } }
+            @media screen and (min-width: 768px) {
+              .result-popup .outer .inner .scroll .content .slider .item {
+                margin: 0 7px;
+                width: 130px; } }
+            .result-popup .outer .inner .scroll .content .slider .item img {
+              width: 80%;
+              margin: 0 auto;
+              text-align: center; }
+            .result-popup .outer .inner .scroll .content .slider .item p.brand {
+              background-color: #ffffff;
+              color: #252122;
+              font-size: 12px;
+              line-height: 1rem;
+              padding: 4px 0 2px; }
+            .result-popup .outer .inner .scroll .content .slider .item p.name {
+              height: 32px;
+              background-color: #ffffff;
+              color: #252122;
+              font-size: 12px;
+              line-height: .9rem;
+              padding: 0 5px 0px; }
+            .result-popup .outer .inner .scroll .content .slider .item p.vote {
+              background-color: #f28475;
+              color: #ffffff;
+              padding: 3px 0;
+              letter-spacing: 1px;
+              font-size: 15px;
+              font-weight: bolder;
+              cursor: pointer;
+              -webkit-transition: all .5s;
+              -o-transition: all .5s;
+              transition: all .5s; }
+              @media screen and (min-width: 1200px) {
+                .result-popup .outer .inner .scroll .content .slider .item p.vote {
+                  font-size: 16px; }
+                  .result-popup .outer .inner .scroll .content .slider .item p.vote:hover {
+                    background-color: #e95a50;
+                    -webkit-transition: all .5s;
+                    -o-transition: all .5s;
+                    transition: all .5s; } }
+        .result-popup .outer .inner .scroll .btn-col {
+          max-width: 335px;
+          margin: 0 auto;
+          text-align: center; }
+          @media screen and (min-width: 768px) {
+            .result-popup .outer .inner .scroll .btn-col {
+              max-width: 600px; } }
+          @media screen and (min-width: 1200px) {
+            .result-popup .outer .inner .scroll .btn-col {
+              max-width: 700px; } }
+          .result-popup .outer .inner .scroll .btn-col .btn {
+            margin: 3px 5px .5rem;
+            cursor: pointer; }
+            @media screen and (min-width: 375px) {
+              .result-popup .outer .inner .scroll .btn-col .btn {
+                margin: 3px 10px .5rem; } }
+            @media screen and (min-width: 768px) {
+              .result-popup .outer .inner .scroll .btn-col .btn {
+                margin: 3px 8px 0;
+                padding: 4px; } }
+            @media screen and (min-width: 1200px) {
+              .result-popup .outer .inner .scroll .btn-col .btn {
+                margin: 3px 12px 0; } }
+            @media screen and (min-width: 600px) {
+              .result-popup .outer .inner .scroll .btn-col .btn p {
+                padding: 8px 24px;
+                font-size: 19px;
+                border: 3px solid #252122; } }
+            @media screen and (min-width: 1200px) {
+              .result-popup .outer .inner .scroll .btn-col .btn p {
+                padding: 8px 28px; } }
+          .result-popup .outer .inner .scroll .btn-col .link-btn {
+            background-color: #ffa28d; }
+          .result-popup .outer .inner .scroll .btn-col .share-btn {
+            background-color: #5e7ebf; }
+          .result-popup .outer .inner .scroll .btn-col .again-btn {
+            background-color: #ef756c; }
+
+footer {
+  width: 100%;
+  background-color: #f9d8d4;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative; }
+  footer .wrap {
+    width: 90%;
+    margin: 0 auto; }
+    footer .wrap .ft-icon {
+      width: 11vw;
+      max-width: 55px;
+      display: inline-block;
+      border: 2px solid #231f20;
+      border-radius: 20px;
+      margin: 0 1.5vw; }
+      @media screen and (min-width: 1366px) {
+        footer .wrap .ft-icon {
+          margin: 0 15px; } }
+      footer .wrap .ft-icon svg {
+        width: 100%; }
+        footer .wrap .ft-icon svg .ft-svg {
+          fill: #231f20; }
+    footer .wrap .privacy {
+      width: 90%;
+      padding-top: 1rem;
+      line-height: 1.2rem;
+      margin: 0 auto;
+      color: #231f20;
+      font-size: 13px; }
+      @media screen and (min-width: 1366px) {
+        footer .wrap .privacy {
+          line-height: 1.4rem; } }
+      footer .wrap .privacy a {
+        color: #231f20; }

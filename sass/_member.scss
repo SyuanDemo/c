@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+// ============== LOGIN ============== //
+.choose-award-lightbox{
+    .choose-bg-wrap{
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        z-index: 1025;
+        .choose-award-banner{
+            width: 90%;
+            max-width: 460px;
+            height: auto;
+            background: #fff;
+            border-radius: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1026;
+            .close-choose{
+                color: #333;
+                position: absolute;
+                top: 13px;
+                right: 17px;
+                font-size: 25px;
+                font-family: 'Fredoka One', cursive;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .choose-alert{
+                .award-img{
+                    display: inline-block;
+                    width: 40%;
+                    max-width: 196px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                div:nth-child(1){
+                    margin: 0 5% 10px 0;
+                }
+                div:nth-child(2){
+                    margin: 0 0 10px 0;
+                }
+            }
+            .choose-award-msg{
+                text-align: center;
+                margin: 0 auto;
+                color: #333;
+                font-size: 24px;
+                width: 95%;
+                padding: 15% 0px;
+                display: block;
+                font-weight: bolder;
+            }
+            .choose-award-btn{
+                display: inline-block;
+                width: 35%;
+                margin: 0 4% 15%;
+                padding: 15px 5px;
+                background: #c24744;
+                text-align: center;
+                cursor: pointer;
+                line-height: 1.2rem;
+                color: #fff;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .fb-n-award {
+                margin: 20% auto!important;
+            }
+            .login-fb, .login-fb-n{
+                background-color: #4267b2;
+                border-radius: 4px;
+                color: #fff;
+                padding: 15px;
+                font-size: 18px;
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                width: 70%;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .login-google {
+                background-color: #c44744;
+                border-radius: 4px;
+                color: #fff;
+                padding: 15px;
+                font-size: 18px;
+                transition: all 0.3s ease 0s;
+                cursor: pointer;
+                width: 70%;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .login-box{
+                width: 100%;
+                max-width: 400px;
+                height: 75vh;
+                overflow-y: auto;
+                margin: 0 auto;
+                margin-top: 0%;
+                background: #fff;
+                border-radius: 20px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                #memberlogin{
+                    form{
+                        table{
+                            display: block;
+                            width: 100%;
+                            tbody{
+                                display: block;
+                                tr:nth-child(1){
+                                    display: block;
+                                    td{
+                                        display: block;
+                                        img{
+                                            height: 70px;
+                                            margin-top: 5%;
+                                        }
+                                    }
+                                }
+                                tr:nth-child(2){
+                                    display: block;
+                                    margin: 10px 0 0;
+                                    td:nth-child(1){
+                                        display: inline-block;
+                                        width: 66px;
+                                        font-size: 15px;
+                                        font-weight: bold;
+                                    }
+                                    td:nth-child(2){
+                                        display: inline-block;
+                                        position: relative;
+                                        .custom-error{
+                                            opacity: 0.87;
+                                            position: absolute;
+                                            top: 45px;
+                                            left: -10px;
+                                            margin-top: 0px;
+                                            .formErrorContent{
+                                                display: block;
+                                                .error_text{
+                                                    font-size: 12px;
+                                                    line-height: 0rem;
+                                                    position: relative;
+                                                    margin: -2px 0;
+                                                    color: #333;
+                                                }
+                                            }
+                                        }
+                                        input{
+                                            width: 170px;
+                                            height: 18px;
+                                            border: 1px solid #000000;
+                                            font-size: 12px;
+                                            padding: 5px;
+                                            margin: 3% 0%;
+                                        }
+                                    }
+                                }
+                                tr:nth-child(3){
+                                    display: block;
+                                    margin: 17px 0 12px;
+                                    td:nth-child(1){
+                                        display: inline-block;
+                                        width: 66px;
+                                        font-size: 15px;
+                                        font-weight: bold;
+                                    }
+                                    td:nth-child(2){
+                                        display: inline-block;
+                                        position: relative;
+                                        .custom-error{
+                                            opacity: 0.87;
+                                            position: absolute;
+                                            top: 45px;
+                                            left: -10px;
+                                            margin-top: 0px;
+                                            .formErrorContent{
+                                                display: inline-block;
+                                                .error_text{
+                                                    font-size: 12px;
+                                                    line-height: 0rem;
+                                                    position: relative;
+                                                    color: #333;
+                                                }
+                                            }
+                                        }
+                                        input{
+                                            width: 170px;
+                                            height: 18px;
+                                            border: 1px solid #000000;
+                                            font-size: 12px;
+                                            padding: 5px;
+                                            margin: 3% 0%;
+                                        }
+                                    }
+                                }
+                                tr:nth-child(4){
+                                    display: block;
+                                    margin-top: 0;
+                                    td{
+                                        display: block;
+                                        // width: 100%;
+                                    }
+                                    #g-recaptcha-box{
+                                        width: 100%;
+                                    }
+                                    #g-recaptcha{
+                                        transform: scale(0.8);
+                                        div{
+                                            margin: 0 auto;
+                                        }
+                                    }
+                                }
+                                tr:nth-child(5){
+                                    height: 15px;
+                                    display: block;
+                                    #msg-txt{
+                                        color: #c44744;
+                                        font-weight: bold;
+                                        font-size: 13px;
+                                        line-height: 1em;
+                                        padding: 0px;
+                                        text-align: center;
+                                        margin: 0 auto;
+                                        display: inline-block;
+                                        position: relative;
+                                        top: -4px;
+                                    }
+                                }
+
+                                tr:nth-child(6){
+                                    display: block;
+                                    td{
+                                        display: block;
+                                        width: 100%;
+                                    }
+                                    td:nth-child(1){
+                                        height: 0;
+                                    }
+                                    td:nth-child(2){
+                                        input{
+                                            margin: 0px auto;
+                                            padding: 10px;
+                                            border-radius: 0;
+                                            background: #000;
+                                            color: #fff;
+                                            width: 110px;
+                                            // height: 32px;
+                                            border: 0;
+                                            font-size: 15px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        p{
+                            margin: 30px 0 12px;
+                            font-size: 16px;
+                            font-weight: bolder;
+                        }
+                        .login-more-box{
+                            margin: 0px auto;
+                            .login-fb{
+                                width: 60%;
+                                margin-bottom: 8px;
+                                padding: 10px;
+                            }
+                            .login-google{
+                                width: 60%;
+                                padding: 10px;
+                            }
+                        }
+                        
+                    }
+                }
+                .member-more{
+                    margin: 10px auto;
+                    padding: 0;
+                    img{
+                        height: 14px;
+                    }
+                    a{
+                        font-size: 13px;
+                        color: #666;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 375px){
+    .choose-award-lightbox{
+        .choose-bg-wrap{
+            .choose-award-banner{
+                .login-box{
+                    height: auto;
+                    #memberlogin{
+                        form{
+                            p{
+                                margin: 30px 0 12px;
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                            .login-more-box{
+                                margin: 0px auto;
+                                .login-fb{
+                                    width: 60%;
+                                    margin-bottom: 8px;
+                                    padding: 10px;
+                                }
+                                .login-google{
+                                    width: 60%;
+                                    padding: 10px;
+                                }
+                            }
+                            table{
+                                tbody{
+                                    tr:nth-child(1){
+                                        td{
+                                            img{
+                                                padding: 0 5px;
+                                            }
+                                        }
+                                    }
+                                    tr:nth-child(2){
+                                        td:nth-child(1){
+                                            width: 80px;
+                                            font-size: 16px;
+                                        }
+                                        td:nth-child(2){
+                                            input{
+                                                width: 190px;
+                                            }
+                                        }
+                                    }
+                                    tr:nth-child(3){
+                                        margin: 17px 0;
+                                        td:nth-child(1){
+                                            width: 80px;
+                                            font-size: 16px;
+                                        }
+                                        td:nth-child(2){
+                                            input{
+                                                width: 190px;
+                                            }
+                                        }
+                                    }
+                                    tr:nth-child(4){
+                                        #g-recaptcha{
+                                            transform: none;
+                                        }
+                                    }
+                                    tr:nth-child(6){
+                                        td:nth-child(2){
+                                            input{
+                                                // margin: 0px auto;
+                                                // padding: 18px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .member-more{
+                        margin: 18px auto;
+                        img{
+                            height: 16px;
+                        }
+                        a{
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 508px){
+    .choose-award-lightbox{
+        .choose-bg-wrap{
+            .choose-award-banner{
+                .login-box{
+                    #memberlogin{
+                        form{
+                            table{
+                                tbody{
+                                    tr:nth-child(1){
+                                        td{
+                                            img{
+                                                padding: 0 10px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .choose-award-msg {
+                    text-align: center;
+                    margin: 0 auto;
+                    color: #000;
+                    font-size: 24px;
+                    width: 95%;
+                    padding: 50px 0px;
+                    display: block;
+                    font-weight: bolder;
+                }
+                .choose-award-btn{
+                    display: inline-block;
+                    width: 35%;
+                    margin: 0 2% 50px;
+                    padding: 20px 15px;
+                    background: #c24744;
+                    text-align: center;
+                    cursor: pointer;
+                    line-height: 1.2rem;
+                    color: #fff;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
